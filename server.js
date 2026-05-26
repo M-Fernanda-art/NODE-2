@@ -119,7 +119,7 @@ app.put("/comentarios/:posicion", (req, res) => {
 
 
 
-// PATCH: Sirve para actualizar SOLO una parte
+// PATCH: Sirve para actualizar SOLO una parte. Adjunto imagen
 
 app.patch("/comentarios/:posicion", (req, res) => {
 
@@ -148,8 +148,37 @@ app.patch("/comentarios/:posicion", (req, res) => {
 });
 
 
-// DELETE: Sirve para eliminar información
-// OPTIONS: Sirve para preguntar qué métodos permite el servidor
+// DELETE: Sirve para eliminar información. Adjunto imagen
+
+app.delete("/comentarios/:posicion", (req, res) => {
+
+    const posicionComentario = req.params.posicion;
+
+    if (comentarios[posicionComentario]) {
+
+        comentarios.splice(posicionComentario, 1);
+
+        res.json({
+
+            mensaje: "Comentario eliminado"
+
+        });
+
+    } else {
+
+        res.status(404).json({
+
+            mensaje: "Comentario no encontrado"
+
+        });
+    }
+});
+
+
+
+// OPTIONS: Sirve para preguntar qué métodos permite el servidor. Adjunto imagen
+
+
 // HEAD: Sirve para obtener información de respuesta SIN contenido.
 // CONNECT: Sirve para crear conexiones seguras
 // TRACE: Sirve para diagnóstico y depuración.
