@@ -230,3 +230,41 @@ app.trace("/rastreo", (req, res) => {
 // 404 - Not Found: Ruta no encontrada
 // 500 - Internal Server Error: El servidor tuvo un error interno
 // 503 - Service Unavailable: servidor no disponible
+
+
+
+// JWT (Json Web Token) 
+
+// Es un sistema de autenticación usado para login, proteger rutas, verificar usuarios, mantener sesiones, en aplicaciones backend con Express.
+// Cuando un usuario inicia sesión, el servidor verifica usuario y contraseña, el servidor crea un TOKEN, el cliente guarda ese token, el token se envía en futuras peticiones, el servidor verifica si el token es válido.
+// Se usa mucho en APIs REST, aplicaciones web, apps móviles, autenticación moderna.
+// Adjunto imagen
+
+const jwt = require("jsonwebtoken");
+
+app.post("/login", (req, res) => {
+
+    const usuario = req.body.usuario;
+
+    const token = jwt.sign(
+
+        {
+            nombre: usuario
+        }, 
+
+        "claveSecreta",
+
+        {
+            expiresIn: "1h"
+        }
+    );
+
+    res.json({
+
+        mensaje: "Login correcto",
+
+        token: token
+    });
+});
+
+
