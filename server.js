@@ -178,10 +178,41 @@ app.delete("/comentarios/:posicion", (req, res) => {
 
 // OPTIONS: Sirve para preguntar qué métodos permite el servidor. Adjunto imagen
 
+app.options("/comentarios", (req, res) => {
+
+    res.setHeader(
+        "Allow",
+        "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+    );
+
+    res.send("Métodos permitidos");
+});
+
 
 // HEAD: Sirve para obtener información de respuesta SIN contenido.
+
+app.head("/videojuegos", (req, res) => {
+
+    res.status(200).end();
+
+});
+
+
 // CONNECT: Sirve para crear conexiones seguras
+
+app.connect("/conexion", (req, res) => {
+
+    res.send("Conexión establecida con el servidor");
+
+});
+
+
+
 // TRACE: Sirve para diagnóstico y depuración.
 
+app.trace("/rastreo", (req, res) => {
 
+    res.send("TRACE ejecutando correctamente");
+
+});
 
