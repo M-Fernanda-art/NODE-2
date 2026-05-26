@@ -216,3 +216,17 @@ app.trace("/rastreo", (req, res) => {
 
 });
 
+
+// CODIGOS DE ESTADO HTTP
+
+// Sirven para decirle al cliente qué pasó con la petición.
+
+// 200 - OK: Todo salió bien
+// 201 - Created: Recurso creado correctamente
+// 204 - No content: Todo salió bien pero no hay contenido
+// 400 - Bad Request: La petición está mal hecha
+// 401 - Unauthorized: No autorizado
+// 403 - Forbidden: El servidor entendió la petición pero la prohíbe
+// 404 - Not Found: Ruta no encontrada
+// 500 - Internal Server Error: El servidor tuvo un error interno
+// 503 - Service Unavailable: servidor no disponible
