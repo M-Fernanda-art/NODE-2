@@ -268,3 +268,60 @@ app.post("/login", (req, res) => {
 });
 
 
+// CRUD
+
+// Es un término usado en programación y bases de datos para las 4 operaciones principales que se hacen con información.
+
+// C Create  Crear datos
+// R Read    Leer datos
+// U Update  Actualizar datos
+// D Delete  Eliminar datos
+
+// CRUD se relaciona con HTTP:
+
+// Create POST
+// Read   GET
+// Update PUT/PATCH
+// Delete DELETE
+
+// es el conjunto de operaciones básicas para manejar datos: crear, leer, actualizar y eliminar. Es la base de casi todas las aplicaciones web.
+
+// CREATE - POST
+
+app.post("/usuarios", (req, res) => {
+
+    res.send("Usuario creado");
+
+});
+
+// READ - GET
+
+app.get("/usuarios", (req, res) => {
+
+    res.send("Lista de usuarios");
+
+});
+
+// UPDATE - PUT
+
+app.put("/usuarios/1", (req, res) => {
+
+    res.send("Usuario actualizado");
+
+});
+
+// DELETE - DELETE
+
+app.delete("/usuarios/1", (req, res) => {
+
+    res.send("Usuario eliminado");
+
+});
+
+
+// CRUD y MongoDB
+
+// Create  save()
+// Read    find()
+// Update  updateOne()
+// Delete  deleteOne()
