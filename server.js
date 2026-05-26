@@ -95,15 +95,34 @@ app.get("/", (req, res) => {
 
 
 
-// PUT: Sirve para actualizar información completa.
+// PUT: Sirve para actualizar información completa. Adjunto imagen
 
+app.put("/comentarios/:posicion", (req, res) => {
 
+    const posicionComentario = req.params.posicion;
 
+    comentarios[posicionComentario] = {
 
+        mensaje: req.body.mensaje
+
+    };
+
+    res.json({
+
+        mensaje: "Comentario actualizado",
+
+        datos: comentarios[posicionComentario]
+
+    });
+
+});
 
 
 
 // PATCH: Sirve para actualizar SOLO una parte
+
+
+
 // DELETE: Sirve para eliminar información
 // OPTIONS: Sirve para preguntar qué métodos permite el servidor
 // HEAD: Sirve para obtener información de respuesta SIN contenido.
