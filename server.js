@@ -121,6 +121,31 @@ app.put("/comentarios/:posicion", (req, res) => {
 
 // PATCH: Sirve para actualizar SOLO una parte
 
+app.patch("/comentarios/:posicion", (req, res) => {
+
+    const posicionComentario = req.params.posicion;
+
+    if (comentarios[posicionComentario]) {
+
+        comentarios[posicionComentario].mensaje =
+        req.body.mensaje;
+
+        res.json({
+
+            mensaje: "Comentario modificado parcialmente",
+
+            datos: comentarios[posicionComentario]
+
+        });
+    
+    } else {
+
+        res.status(404).json({
+
+            mensaje: "Comentario no encontrado"
+        });
+    }
+});
 
 
 // DELETE: Sirve para eliminar información
